@@ -1,11 +1,11 @@
-const clientId = "6e45be20d64d40be8c2c5b51da9dec00"; // Replace with your client ID
+const clientId = "6e45be20d64d40be8c2c5b51da9dec00";
 const params = new URLSearchParams(window.location.search);
 const code = params.get("code");
 
 if (!code) {
     redirectToAuthCodeFlow(clientId);
 } else {
-    const accessToken = getAccessToken(clientId, code);
+    const accessToken = await getAccessToken(clientId, code);
     const profile = await fetchProfile(accessToken);
     populateUI(profile);
 }
@@ -19,7 +19,7 @@ export async function redirectToAuthCodeFlow(clientId) {
     const params = new URLSearchParams();
     params.append("client_id", clientId);
     params.append("response_type", "code");
-    params.append("redirect_uri", "http://localhost:5173/callback");
+    params.append("redirect_uri", "http://localhost:8888/callback");
     params.append("scope", "user-read-private user-read-email");
     params.append("code_challenge_method", "S256");
     params.append("code_challenge", challenge);
@@ -54,7 +54,7 @@ export async function getAccessToken(clientId, code) {
     params.append("client_id", clientId);
     params.append("grant_type", "authorization_code");
     params.append("code", code);
-    params.append("redirect_uri", "http://localhost:5173/callback");
+    params.append("redirect_uri", "http://localhost:8888/callback");
     params.append("code_verifier", verifier);
 
     const result = await fetch("https://accounts.spotify.com/api/token", {
