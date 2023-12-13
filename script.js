@@ -1,7 +1,7 @@
 var client_id = '6e45be20d64d40be8c2c5b51da9dec00';
 var redirect_uri = 'http://localhost:8888/callback';
 var scope = 'user-read-private user-read-email'; // Example scope, modify as needed
-var state = abeiglebi84kls8j2; // Replace with your state string
+var state = 'abeiglebi84kls8j2'; // Replace with your state string
 
 var params = new URLSearchParams({
   response_type: 'code',
