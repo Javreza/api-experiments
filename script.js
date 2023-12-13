@@ -13,8 +13,10 @@ var params = new URLSearchParams({
 
 var uri = 'https://accounts.spotify.com/authorize?' + params.toString();
 
-fetch(uri).then(function (response){
+/*fetch(uri).then(function (response){
   console.log('Successful', response);
 }).catch(function (err){
   console.warn("Error", err)
-});
+});*/
+
+window.location = uri;
