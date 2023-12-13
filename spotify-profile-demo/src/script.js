@@ -19,7 +19,12 @@ export async function redirectToAuthCodeFlow(clientId) {
     const params = new URLSearchParams();
     params.append("client_id", clientId);
     params.append("response_type", "code");
+<<<<<<< HEAD:spotify-profile-demo/src/script.js
     params.append("redirect_uri", "http://localhost:8888/callback");
+=======
+    //params.append("redirect_uri", "http://localhost:5173/callback");
+    params.append("redirect_uri", "https://javreza.github.io/api-experiments");
+>>>>>>> 7d80d7964bc0dbcf848235ca0e2191f03e298855:src/script.js
     params.append("scope", "user-read-private user-read-email");
     params.append("code_challenge_method", "S256");
     params.append("code_challenge", challenge);
@@ -54,7 +59,11 @@ export async function getAccessToken(clientId, code) {
     params.append("client_id", clientId);
     params.append("grant_type", "authorization_code");
     params.append("code", code);
+<<<<<<< HEAD:spotify-profile-demo/src/script.js
     params.append("redirect_uri", "http://localhost:8888/callback");
+=======
+    params.append("redirect_uri", "https://javreza.github.io/api-experiments");
+>>>>>>> 7d80d7964bc0dbcf848235ca0e2191f03e298855:src/script.js
     params.append("code_verifier", verifier);
 
     const result = await fetch("https://accounts.spotify.com/api/token", {
